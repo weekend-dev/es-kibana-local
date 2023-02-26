@@ -50,7 +50,7 @@ docker cp es-kibana-local-es01-1:/usr/share/elasticsearch/config/certs .
 
 6. ホストからcurlする
 ```
-curl --cacert ./certs/ca/ca.crt -u elastic:P@sswordes -X GET "https://localhost:9200/_cluster/health?pretty"
+curl --cacert ./certs/ca/ca.crt -u elastic:[.envのELASTIC_PASSWORDに設定した値] -X GET "https://localhost:9200/_cluster/health?pretty"
 ```
 
 # 参考リンク
