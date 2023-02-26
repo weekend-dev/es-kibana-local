@@ -39,7 +39,10 @@ MEM_LIMIT=1073741824
 user: elastic
 pass: .envのELASTIC_PASSWORDに設定した値
 ```
-4. Dev Toolsからcurl確認
+4. Dev Toolsからクラスターのステータスを確認
+```
+GET _cluster/health
+```
 5. ホスト側からhttpsでcurlするために、esのコンテナから証明書を取ってくる
 ```
 docker cp es-kibana-local-es01-1:/usr/share/elasticsearch/config/certs .
@@ -47,7 +50,7 @@ docker cp es-kibana-local-es01-1:/usr/share/elasticsearch/config/certs .
 
 6. ホストからcurlする
 ```
-curl --cacert /Users/yu-ishiguro/work/weekend-dev/es-kibana-local/certs/ca/ca.crt -u elastic:P@sswordes -X GET "https://localhost:9200/_cluster/health?pretty"
+curl --cacert ./certs/ca/ca.crt -u elastic:P@sswordes -X GET "https://localhost:9200/_cluster/health?pretty"
 ```
 
 # 参考リンク
